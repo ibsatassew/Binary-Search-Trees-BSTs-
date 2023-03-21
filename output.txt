@@ -1,0 +1,76 @@
+Measuring Running Time
+
+RANDOM MEDIUM 
+
+insert()
+Elapsed Time in nanoseconds: 30112458
+The height of the BST is: 26
+
+search()
+Elapsed Time in nanoseconds: 158084
+The height of the BST is: 26
+
+remove()
+Elapsed Time in nanoseconds: 168792
+The height of the BST is: 26
+
+SORTED MEDIUM 
+
+insert()
+Elapsed Time in nanoseconds: 144539833
+The height of the BST is: 3449
+
+search()
+Elapsed Time in nanoseconds: 434791
+The height of the BST is: 3449
+
+remove()
+Elapsed Time in nanoseconds: 423250
+The height of the BST is: 3449
+
+RANDOM LARGE 
+
+insert()
+Elapsed Time in nanoseconds: 107230542
+The height of the BST is: 34
+
+search()
+Elapsed Time in nanoseconds: 9275959
+The height of the BST is: 34
+
+remove()
+Elapsed Time in nanoseconds: 9622125
+The height of the BST is: 34
+
+SORTED LARGE 
+
+insert()
+Elapsed Time in nanoseconds: 2949612833
+The height of the BST is: 15428
+
+search()
+Elapsed Time in nanoseconds: 17405834
+The height of the BST is: 15428
+Searching took a while, to even run on the command line, it takes way longer than the other databases 
+
+remove()
+StACK OVERFLOW
+
+RUNNING TIME ANALYSIS OF RANDOM AND SORTED DATA 
+
+The running time is way longer for the sorted datasets for all the three operations, the height of the BST formed form the sorted datasets is also very much larger, this is because the running time can be influenced by the ordering of the elements in the tree, which is determined by the order in which the elements are inserted.
+
+"When the elements in the BST are sorted, i.e., when they are inserted in order, the height of the tree becomes equal to the number of elements. This is because the tree is essentially a linked list in this case. As a result, search, insert, and remove operations take longer because they have to traverse through the height of the tree, which is O(n) for n elements in the tree." But in our case the height if not the same as the number of elements in for the sorted datasets, why?
+
+On the other hand, when the elements in the BST are randomly inserted, the height of the tree is typically much shorter. In fact, on average, the height of a randomly generated BST with n elements is O(log n). This is because the tree tends to be more balanced when the elements are inserted randomly. As a result, search, insert, and remove operations take less time because they only have to traverse through the height of the tree, which is O(log n).
+
+In terms of big O notation, the worst-case time complexity for search, insert, and remove operations in a sorted BST is O(n), while the average-case and worst-case time complexity for search, insert, and remove operations in a randomly generated BST is O(log n).
+
+The remove() method for the sorted large data sets led to a stack overflow because the method is implemented recursively and the tree is unbalanced or very large.
+
+In a recursive implementation of the remove() method, the method first recursively traverses the tree to find the node to be removed, and then recursively removes the node from the tree by adjusting the links between its parent and its children.
+
+If the BST is unbalanced, with a large number of nodes on one side of the tree, this recursive traversal can cause the stack to grow very large. This happens because each recursive call adds a new frame to the stack, and if there are many levels of recursion, the stack can grow too large for the program to handle.
+
+To avoid this problem, one can implement an iterative remove() method that does not use recursion. Alternatively, one can use tail recursion or other techniques to optimize the recursive implementation to reduce the risk of stack overflow errors.
+
